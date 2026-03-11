@@ -6,10 +6,23 @@ const cors = require("cors");
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
+
+const defaultCorsOrigins = [
+    "https://moodify-1-6mjm.onrender.com",
+    "http://localhost:5173"
+];
+const corsOrigins = process.env.CORS_ORIGINS
+    ? process.env.CORS_ORIGINS.split(",").map((origin) => origin.trim()).filter(Boolean)
+    : defaultCorsOrigins;
+
 app.use(cors({
-    origin: "https://moodify-1-6mjm.onrender.com",
+    origin: (origin, callback) => {
+        if (!origin) return callback(null, true);
+        if (corsOrigins.includes(origin)) return callback(null, true);
+        return callback(new Error(`CORS blocked for origin: ${origin}`));
+    },
     credentials: true
-}))
+}));
 
 /**
  * Routes
