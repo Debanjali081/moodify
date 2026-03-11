@@ -1,0 +1,184 @@
+@use 'auth-variables' as *;
+
+// ── Page wrapper ─────────────────────────────────────────────────────
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: $color-bg-deep;
+    background-image:
+        radial-gradient(ellipse 60% 50% at 90% 5%,  rgba(221, 66, 0, 0.14) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 35% at 10% 95%, rgba(221, 66, 0, 0.08) 0%, transparent 65%);
+    padding: 1.5rem;
+}
+
+// ── Card ─────────────────────────────────────────────────────────────
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    background: $color-bg-card;
+    border: 1px solid $color-border;
+    border-radius: $radius-card;
+    padding: 2.75rem 2.5rem 2.25rem;
+    box-shadow: $shadow-card;
+    animation: authCardIn $transition-med both;
+
+    // ── Brand ──
+    &__brand {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+
+        .brand-icon {
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+
+        .brand-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: $color-text-main;
+            letter-spacing: -0.01em;
+
+            span {
+                color: $color-accent;
+            }
+        }
+    }
+
+    // ── Heading ──
+    &__heading {
+        font-size: 1.55rem;
+        font-weight: 700;
+        color: $color-text-main;
+        margin-bottom: 0.35rem;
+        letter-spacing: -0.02em;
+    }
+
+    &__subheading {
+        font-size: 0.85rem;
+        color: $color-text-muted;
+        margin-bottom: 2rem;
+    }
+
+    // ── Form ──
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.15rem;
+    }
+
+    // ── Form Group ──
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+
+        label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: $color-text-muted;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: $color-input-bg;
+            border: 1px solid $color-input-border;
+            border-radius: $radius-input;
+            color: $color-text-main;
+            font-size: 0.92rem;
+            outline: none;
+            transition:
+                border-color $transition-fast,
+                box-shadow $transition-fast,
+                background $transition-fast;
+
+            &::placeholder {
+                color: $color-text-dim;
+            }
+
+            &:hover {
+                border-color: #3e3e3e;
+            }
+
+            &:focus {
+                border-color: $color-border-focus;
+                background: #1a1a1a;
+                box-shadow: 0 0 0 3px $color-accent-subtle,
+                            0 0 12px rgba(221, 66, 0, 0.08);
+            }
+        }
+    }
+
+    // ── Submit button ──
+    .auth-btn {
+        width: 100%;
+        padding: 0.82rem;
+        margin-top: 0.5rem;
+        background: $color-accent;
+        color: #fff;
+        font-size: 0.95rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        border: none;
+        border-radius: $radius-btn;
+        cursor: pointer;
+        transition:
+            background $transition-fast,
+            box-shadow $transition-fast,
+            transform $transition-fast;
+
+        &:hover {
+            background: $color-accent-hover;
+            box-shadow: $shadow-btn;
+            transform: translateY(-1px);
+        }
+
+        &:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+    }
+
+    // ── Footer link ──
+    &__footer {
+        margin-top: 1.5rem;
+        text-align: center;
+        font-size: 0.85rem;
+        color: $color-text-muted;
+
+        a {
+            color: $color-accent;
+            font-weight: 600;
+            transition: color $transition-fast;
+
+            &:hover {
+                color: $color-accent-hover;
+            }
+        }
+    }
+
+    // ── Divider ──
+    &__divider {
+        height: 1px;
+        background: $color-border;
+        margin: 1.5rem 0;
+    }
+}
+
+// ── Entrance animation ────────────────────────────────────────────────
+@keyframes authCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,27 @@
+// ── Moodify Auth Design Tokens ──────────────────────────────────────
+$color-bg-deep:       #111111;
+$color-bg-card:       #1e1e1e;
+$color-accent:        #dd4200;
+$color-accent-hover:  #ff5215;
+$color-accent-glow:   rgba(221, 66, 0, 0.18);
+$color-accent-subtle: rgba(221, 66, 0, 0.08);
+
+$color-text-main:     #f1f1f1;
+$color-text-muted:    #888888;
+$color-text-dim:      #555555;
+
+$color-border:        rgba(255, 255, 255, 0.07);
+$color-border-focus:  rgba(221, 66, 0, 0.6);
+$color-input-bg:      #161616;
+$color-input-border:  #2e2e2e;
+
+$radius-card:   16px;
+$radius-input:  10px;
+$radius-btn:    10px;
+
+$shadow-card: 0 24px 64px rgba(0, 0, 0, 0.55),
+              0 0 80px rgba(221, 66, 0, 0.06);
+$shadow-btn:  0 4px 18px rgba(221, 66, 0, 0.35);
+
+$transition-fast: 0.18s ease;
+$transition-med:  0.28s ease;
